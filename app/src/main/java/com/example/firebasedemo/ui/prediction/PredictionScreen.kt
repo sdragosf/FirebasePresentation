@@ -39,6 +39,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -158,7 +159,7 @@ fun PredictionScreen(
         }
 
         Text(
-            text = "Wow! The car is a ${uiState.value.uiElementsState.brand?.name}!\nBrowse more models in the link below \uD83D\uDC47",
+            text = "Wow! The car is a ${uiState.value.uiElementsState.brand?.name}!\nBrowse more models in the link below",
             fontSize = 18.sp,
             style = TextStyle(color = VeryLightGray, fontSize = 16.sp),
             modifier = Modifier
@@ -197,11 +198,15 @@ fun PredictionScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    Image(
-                        modifier = Modifier.padding(8.dp),
-                        painter = painterResource(id = R.drawable.autovit),
-                        contentDescription = "Autovit",
-                        contentScale = ContentScale.FillWidth
+//                    Image(
+//                        modifier = Modifier.padding(8.dp),
+//                        painter = painterResource(id = R.drawable.autovit),
+//                        contentDescription = "Autovit",
+//                        contentScale = ContentScale.FillWidth
+//                    )
+                    Text(
+                        text = "Buy a car",
+                        color = DarkBlue,
                     )
                 }
             }
@@ -329,23 +334,23 @@ fun AskGeminiButton(
                         colorFilter = ColorFilter.tint(Orange)
                     )
                 } else {
-                    Image(
-                        painter = painterResource(
-                            id = R.drawable.wheel_spin
-                        ),
-                        modifier = Modifier
-                            .height(32.dp)
-                            .padding(6.dp),
-                        contentDescription = "Gemini icon",
-                        contentScale = ContentScale.Fit,
-                    )
-//                    GlideImage(
+//                    Image(
+//                        painter = painterResource(
+//                            id = R.drawable.wheel_spin
+//                        ),
 //                        modifier = Modifier
 //                            .height(32.dp)
 //                            .padding(6.dp),
-//                        model = R.drawable.wheel_spin,
-//                        contentDescription = "Loading indicator"
+//                        contentDescription = "Gemini icon",
+//                        contentScale = ContentScale.Fit,
 //                    )
+                    GlideImage(
+                        modifier = Modifier
+                            .height(32.dp)
+                            .padding(6.dp),
+                        model = R.drawable.wheel_spin,
+                        contentDescription = "Loading indicator"
+                    )
                 }
                 Text(
                     modifier = Modifier.padding(8.dp),

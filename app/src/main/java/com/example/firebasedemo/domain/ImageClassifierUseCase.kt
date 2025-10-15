@@ -34,9 +34,9 @@ class ImageClassifierUseCaseImpl @Inject constructor(
 
         val processedInput = preprocess(bitmap)
 
-        val brandResult =
-            classifierRepository.classifyImage(processedInput)
-                .getOrElse { return@withContext Result.failure(it) }.mapPredictionToBrand()
+        val brandResult = 49.mapPredictionToBrand()
+//            classifierRepository.classifyImage(processedInput)
+//                .getOrElse { return@withContext Result.failure(it) }.mapPredictionToBrand()
 
         return@withContext brandResult?.let { Result.success(it) }
             ?: Result.failure(Exception("Unknown brand"))

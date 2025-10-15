@@ -52,14 +52,16 @@ enum class Brand(val id: Int, val color: Color, val website: String, val icon: I
     Geo(6, Color(0xFFFFFFFF), "https://en.wikipedia.org/wiki/Geo_(automobile)", R.drawable.geo_logo),
     Plymouth(12, Color(0xFFFFFFFF), "https://www.chrysler.com", R.drawable.plymouth_logo),
     Isuzu(34, Color(0xFFFFFFFF), "https://www.isuzu.com", R.drawable.isuzu_logo),
-    Ram(36, Color(0xFFF7F7F7), "https://www.ram.com", R.drawable.ram)
+    Ram(36, Color(0xFFF7F7F7), "https://www.ram.com", R.drawable.ram),
+    SuperSport(49, Color(0xaaffaa00), "https://www.mock.com", R.drawable.super_sport)
 }
 
 sealed class GeminiQuery {
     abstract fun getQuery() : String
     class CarBrandInfo(val brand: Brand) : GeminiQuery() {
         override fun getQuery(): String {
-            return "I am a car enthusiast and I want to learn more about ${brand.name}. Tell me in a paragraph about this brand's history, in another paragraph what's the most popular car model and in another paragraph if I should buy it."
+            return "I am a car enthusiast and I want to learn more about ${brand.name}. This is a mocked brand, please try to come up with information about it. Tell me in a paragraph about this brand's history, in another paragraph what's the most popular car model and in another paragraph if I should buy it."
+//            return "I am a car enthusiast and I want to learn more about ${brand.name}. Tell me in a paragraph about this brand's history, in another paragraph what's the most popular car model and in another paragraph if I should buy it."
         }
     }
 }
